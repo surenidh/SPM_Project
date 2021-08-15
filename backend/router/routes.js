@@ -20,6 +20,6 @@ router.post('/uploadposts', (request, response) => {
 })
 
 
-router.get('/login', require('../../src/components/login.js'));
+router.post('/login', require('../../frontend/src/components/login.js'));
 
 module.exports = router;

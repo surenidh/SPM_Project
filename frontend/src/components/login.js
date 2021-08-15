@@ -14,8 +14,8 @@ class Login extends Component {
                 </div>
                 <div class="navbar">
                     <div class="home">
-                        <button class="btn"><i class="fa fa-home" aria-hidden="true"></i><FaHome/>HOME
-                        </button>
+                        <Link to="/"><button class="btn"><i class="fa fa-home" aria-hidden="true"></i><FaHome/>HOME
+                        </button></Link>
                     </div>
                 </div>
             </div>
@@ -24,12 +24,12 @@ class Login extends Component {
                 <h3>LOGIN</h3>
                 <input type="text" placeholder="Email"></input>
                 <input type="password" placeholder="Password"></input>
-                <button class="btn"><i class="fa fa-sign" aria-hidden="true"></i><FaSignInAlt/>LOGIN
-                </button>
+                <Link to="/dashboard"><button class="btn"><i class="fa fa-sign" aria-hidden="true"></i><FaSignInAlt/>LOGIN
+                </button></Link>
                 <div class="login_links">
                     <ul class="ul_links">
-                        <li class="li_links"><a class="link_items" href="#">Need To Register Now?</a></li>
-                        <li class="li_links"><a class="link_items"href="#">Forgot Password?</a></li>
+                        <Link to="/register"><li class="li_links"><a class="link_items" href="#">Need To Register Now?</a></li></Link>
+                        <Link to="/reset"><li class="li_links"><a class="link_items"href="#">Forgot Password?</a></li></Link>
                     </ul>
                 </div>
             </div>
