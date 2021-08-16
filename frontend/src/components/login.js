@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 
 class Login extends Component {
+    
     render() {
     return (
         <div className="content">
@@ -22,9 +23,9 @@ class Login extends Component {
             <div class="login-content">
                 <img/>
                 <h3>LOGIN</h3>
-                <input type="text" placeholder="Email"></input>
-                <input type="password" placeholder="Password"></input>
-                <Link to="/dashboard"><button class="btn"><i class="fa fa-sign" aria-hidden="true"></i><FaSignInAlt/>LOGIN
+                <input type="text" placeholder="Email" required></input>
+                <input type="password" placeholder="Password" required></input>
+                <Link to="/sideNavigation"><button class="btn" onSubmit><i class="fa fa-sign" aria-hidden="true"></i><FaSignInAlt/>LOGIN
                 </button></Link>
                 <div class="login_links">
                     <ul class="ul_links">
