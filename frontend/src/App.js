@@ -5,6 +5,7 @@ import Login from '../src/components/login.js';
 import MakeAppointments from '../src/components/appointments.js';
 import Reset_Password from './components/Reset_Password.js';
 import Register_Patient from './components/Register_Patient.js';
+import Registration from './components/registration-component/registration';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path="/login"><Login/></Route>
           <Route path="/makeAppointments"><MakeAppointments/></Route>
           <Route path="/reset"><Reset_Password/></Route>
-          <Route path="/register"><Register_Patient/></Route>
+          <Route path="/register"><Registration/></Route>
        </Switch>
      </Router>
    </div>
