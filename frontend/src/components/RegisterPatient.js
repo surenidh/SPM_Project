@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Register_Patient() {
+function RegisterPatient() {
     return (
         <div>
             <h1>REgister</h1>
@@ -8,4 +8,4 @@ function Register_Patient() {
     )
 }
 
-export default Register_Patient
+export default RegisterPatient

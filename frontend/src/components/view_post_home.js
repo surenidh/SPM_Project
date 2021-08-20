@@ -1,13 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import '../styles/dashboardView.css';
+import {Link} from 'react-router-dom';
+import { FaEdit , FaTrash , FaEye} from "react-icons/fa";
 
-class view_ariticle extends Component {
+export default class view_post_home extends Component {
     render() {
-  return (
-      <div>
-          <h1>View article</h1>
-      </div>
-  )
-
+        return (
+           <div className="uploadTableRow">
+               <p>
+                   {this.props.obj.title}
+               </p>
+               
+               
+           </div>
+        )
+    }
 }
-}
-export default view_ariticle;

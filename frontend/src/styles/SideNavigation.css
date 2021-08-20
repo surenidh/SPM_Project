@@ -2,8 +2,8 @@
     width:300px;
     height: 401px;
     background-color: lightgray;
-    margin-top: 200px;
-    margin-left: 50px;
+    margin-top: 50px;
+    float: left;
 }
 .sideNavigation .nav_sideNavigation .ul_SideNavigation{
     width:300px;

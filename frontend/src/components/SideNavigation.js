@@ -6,9 +6,9 @@ function SideNavigation() {
         <div className="sideNavigation">
             <nav className="nav_sideNavigation">
                 <ul className="ul_SideNavigation">
-                    <li ><a class="current" href="#" >POSTS</a></li>
-                    <li className=""><a href="#">VIEW UPLOADS</a></li>
-                    <li className=""><a href="#">VIEW QUESTIONS</a></li>
+                    <li ><a className="current" href="/add" >POSTS</a></li>
+                    <li className=""><a href="/view">VIEW UPLOADS</a></li>
+                    <li className=""><a href="/viewQuestions">VIEW QUESTIONS</a></li>
                     <li className=""><a href="#">VIEW APPOINTMENTS</a></li>
                     <li className=""><a href="#">SERVICES</a></li>
                     <li className=""><a href="#">LOGOUT</a></li>

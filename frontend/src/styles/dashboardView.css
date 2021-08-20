@@ -1,0 +1,79 @@
+
+/************************************************
+**************Side Navigation********************
+************************************************/
+.container .content .sideNavigation{
+    width:300px;
+    height: 401px;
+    background-color: lightgray;
+    margin-top: 50px;
+    float: left;
+}
+.content .sideNavigation .nav_sideNavigation .ul_SideNavigation{
+    width:300px;
+    height: 401px;
+}
+
+.sideNavigation .nav_sideNavigation .ul_SideNavigation li{
+    list-style: none;
+    padding: 21px;
+    border-bottom:1px solid black ;
+    width:250px;
+    text-align: left;
+
+}
+.sideNavigation .nav_sideNavigation .ul_SideNavigation li a{
+color:black;
+font-weight: bold;
+text-decoration: none;
+}
+
+.container .content .viewtable h3{
+    width: 1000px;
+    margin-left:655px;
+}
+
+.container .content .sideNavigation .nav_sideNavigation .ul_SideNavigation li a:hover{
+    color: red;
+}
+.container .content .sideNavigation .nav_sideNavigation .ul_SideNavigation li a.current{
+    color: red;
+}
+
+
+.container .content .viewtable thread{
+    width:550px;
+    height: 400px;
+}
+
+.container .content .viewtable table {
+    height:100px;
+    margin-left: 100px;
+    width:880px;
+    float: left;
+}
+
+.container .content .viewtable table tr{
+    width:100%;
+    float: left;
+}
+
+.container .content .viewtable table td,th{
+    width:1000px;
+}
+
+.container .content .viewtable table tbody{
+    width:25%;
+    padding-top: 50px;
+    
+}
+.container .content .viewtable table tbody td{
+    width:25%;
+}
+.red-color{
+width:100px;
+}   
+.container .content .viewtable table tbody .uploadTableRow .data1{
+    width:32%;
+    
+}

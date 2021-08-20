@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import Dashboard_heading from './Dashboard_heading'
 import SideNavigation from './SideNavigation'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,31 +8,8 @@ import {Link} from 'react-router-dom'
 
 import '../styles/dashboard_consultant.css';
 
-export default function Dashboard_upload() {
+class Posts_Edit extends Component {
 
-    const [title, setTitle] = useState("");
-    const [image, setImage] = useState("");
-    const [description, setDescription] = useState("");
-    const [url, setUrl] = useState("");
-
-    function sendData(e){
-        e.preventDefault();
-        
-        const newPost = {
-            title,
-            image,
-            description,
-            url
-        }
-
-        axios.post("http://localhost:3001/posts/add",newPost).then(()=>{
-            alert("Data Saved Successfully")
-        }).catch((err)=>{
-            alert(err)
-        })
-    }
-
-/*
     constructor(props){
         super(props);
 
@@ -92,8 +69,12 @@ export default function Dashboard_upload() {
         url:" "
     })
     }
-*/
 
+    loadPost = async () =>{
+        const result = await axios.get('http://localhost:3001/uploadposts/add')
+    }
+
+    render(){
     return (
         <div className="container">
             <Dashboard_heading/>
@@ -105,40 +86,37 @@ export default function Dashboard_upload() {
                     <SideNavigation/>
                 </div>
                
-                <form onSubmit={sendData}>
+                <form onSubmit={this.onSubmit.bind(this)}>
                     <h3>ADD POSTS</h3>
                     <div className="form-group">
                         <label htmlFor="title">Title</label>
-                        <input type="text" className="form-control" id="title" placeholder="Type Title" onChange={(e)=>{
-                                setTitle(e.target.value);}} />
+                        <input type="text" className="form-control" value={this.state.title} onChange={this.onChangeTitle} name="title" placeholder="Type Title"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Image</label>
                         <div className="input-group mb-3">
-                            <input type="file"  className="form-control" placeholder="Browse Image" id="image" onChange={(e)=>{
-                                setImage(e.target.value);}}/>
+                            <input type="file"  className="form-control" value={this.state.image} onChange={this.onChangeImage} placeholder="Browse Image" name="image"/>
                             
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="Description">Description</label>
-                        <textarea className="form-control" id="description" placeholder="Type Description" onChange={(e)=>{
-                                setDescription(e.target.value);}}></textarea>
+                        <textarea className="form-control" value={this.state.description} onChange={this.onChangeDescription} id="description" placeholder="Type Description" name="description"></textarea>
                     </div>
                     <div className="form-group">
                     <label htmlFor="url">Url</label>
                         <div className="input-group mb-3">
-                            <input type="file"  className="form-control" placeholder="Browse Url" id="url" onChange={(e)=>{
-                                setUrl(e.target.value);}}/>
+                            <input type="file"  className="form-control" value={this.state.url} onChange={this.onChangeUrl} placeholder="Browse Url" name="url" />
                            
                         </div>
                     </div>
-                    <Link to="" onClick={sendData} className="btn btn-danger"><i className="fa fa-save" aria-hidden="true"></i><FaSave/>SAVE</Link>
+                    <Link to="/dashboard_view" className="btn btn-primary"><i className="fa fa-save" aria-hidden="true"></i><FaSave/>SAVE</Link>
                 </form>
             </div>
         </div>
        
     )
 }
+}
 
-
+export default Posts_Edit;

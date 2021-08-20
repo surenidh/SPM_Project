@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Reset_Password() {
+function ResetPassword() {
     return (
         <div>
             <h1>reset password</h1>
@@ -8,4 +8,4 @@ function Reset_Password() {
     )
 }
 
-export default Reset_Password
+export default ResetPassword
