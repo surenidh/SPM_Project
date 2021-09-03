@@ -4,7 +4,9 @@ import { FaQuoteLeft } from 'react-icons/fa';
 //import { Height } from '@material-ui/icons';
 import '../styles/AddPatient.css';
 import {Link} from "react-router-dom";
-import logo from '../images/logo.png';
+import logo from '../images/logo.png'; 
+import SideNavigation from './PatientSideNavBar';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default class EditPatientDetails extends Component{ 
 
@@ -13,8 +15,8 @@ export default class EditPatientDetails extends Component{
         this.onChangePatientName=this.onChangePatientName.bind(this);
         this.onChangeContactNo=this.onChangeContactNo.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangeTitle = this.onChangeEmail.bind(this);
-        this.onChangeQuestion = this.onChangeEmail.bind(this);
+        this.onChangeTitle = this.onChangeTitle.bind(this);
+        this.onChangeQuestion = this.onChangeQuestion.bind(this);
         this.onsubmit=this.onsubmit.bind(this);
 
         this.state={
@@ -26,7 +28,7 @@ export default class EditPatientDetails extends Component{
         }
     }
     componentDidMount(){
-        axios.get('https://icaf2021we36.herokuapp.com/conference/edit/'+this.props.match.params.id) 
+        axios.get('http://localhost:3001/patient/edit/'+this.props.match.params.id) 
         .then(response=>{
             console.log(this.props.match.params.id)
             console.log(response.data);
@@ -78,7 +80,7 @@ export default class EditPatientDetails extends Component{
             title : this.state.title,
             question : this.state.question
         };
-        axios.post('https://icaf2021we36.herokuapp.com/conference/update/'+this.props.match.params.id,obj)
+        axios.post('http://localhost:3001/patient/update/'+this.props.match.params.id,obj)
         .then(res=>console.log(res.data));
     
         this.props.history.push('/ViewPatients'); 
@@ -105,6 +107,7 @@ render(){
                 <br></br><br></br><br></br><br></br><br></br>
         <div className="dashboard">
 <h2 className = 'header2'> <screenLeft>PATIENT DASHBOARD</screenLeft></h2>
+<SideNavigation/>
 </div>
         <div
      class='form-group w-25'
@@ -112,12 +115,12 @@ render(){
      style={{ width: '40rem', height:'36rem',
      backgroundColor: "#c2c2d6",
      marginLeft:600,
-     marginTop:50,
+     marginTop:-500,
     paddingTop: 50 }}
    >     
 
         <div style={{marginTop:10}}>
-          <h3 className = 'header2'> <center>ADD QUESTIONS </center></h3>
+          <h3 className = 'header2'> <center>EDIT QUESTIONS </center></h3>
           <br></br>
              <form onSubmit={this.onsubmit}>
                  <div className="form-group">
@@ -175,7 +178,7 @@ render(){
                  </div>
                   <br></br>
                  <div className="form-group">
-                     <input type="submit" value="SAVE" className="btn btn-danger"/>
+                     <input type="submit" value="UPDATE" className="btn btn-danger"/>
                  </div>
                 
              </form>
