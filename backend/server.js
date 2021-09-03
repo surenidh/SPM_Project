@@ -5,7 +5,6 @@ const cors = require('cors');
 const config = require('./DB.js');
 
 const app = express();
-//const uploadPostRoutes = require('./router/uploadPost.route.js');
 
 mongoose.Promise = global.Promise;
 
@@ -18,7 +17,7 @@ mongoose.connect(config.DB, {useNewUrlParser: true, useUnifiedTopology: true}).t
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-//app.use('/uploadposts',uploadPostRoutes);
+
 
 
 

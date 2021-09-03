@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 export default class TableRow extends Component {
+     id =this.props.obj.id;
     render() {
         return (
            <tr className="uploadTableRow">
@@ -22,7 +23,7 @@ export default class TableRow extends Component {
                 {this.props.obj.url}
                </td>
                <td>
-                    <Link to={"/get/id" + this.props.obj._id} className="btn btn-danger"><i className="fa fa-view red-color" aria-hidden="true"></i><FaEye/></Link>
+                    <Link to={"/view/"+ this.props.obj._id} className="btn btn-danger"><i className="fa fa-view red-color" aria-hidden="true"></i><FaEye/></Link>
                </td>
                <td>
                     <Link to={"/edit/" + this.props.obj._id} className="btn btn-danger"><i className="fa fa-edit"  aria-hidden="true" ></i><FaEdit/></Link>

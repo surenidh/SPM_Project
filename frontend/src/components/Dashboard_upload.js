@@ -4,11 +4,15 @@ import SideNavigation from './SideNavigation'
 import 'bootstrap/dist/css/bootstrap.css';
 import { FaSave } from 'react-icons/fa';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
+import FileBase64 from 'react-file-base64'
 
 import '../styles/dashboard_consultant.css';
-
+/*import upload_posts from '../../../backend/models/upload_posts';
+ import { post } from '../../../backend/router/uploadPost.route.js';
+ */
 export default function Dashboard_upload() {
+    const history =useHistory();
 
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
@@ -25,74 +29,30 @@ export default function Dashboard_upload() {
             url
         }
 
-        axios.post("http://localhost:3001/posts/add",newPost).then(()=>{
-            alert("Data Saved Successfully")
-        }).catch((err)=>{
-            alert(err)
-        })
-    }
+     
+        if(title == "" && description ==""){
+            alert("Title and Description cannot be Empty")
+        }else if(title == ""){
+            alert("Title cannot be Empty")
+        }else if(description == ""){
+            alert("Description cannot be Empty")
+        }else{
+            axios.post("http://localhost:3001/posts/add",newPost).then(()=>{
+                alert("Data Saved Successfully")
+                history.push("/view");
 
-/*
-    constructor(props){
-        super(props);
-
-        this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onChangeImage = this.onChangeImage.bind(this);
-        this.onChangeDescription = this.onChangeDescription.bind(this);
-        this.onChangeUrl = this.onChangeUrl.bind(this);
-
-        this.state = {
-            title:'',
-            image:'',
-            description:'',
-            url:''
+            }).catch((err)=>{
+                alert(err)
+            })
         }
+       
     }
 
-    onChangeTitle(e){
-        this.setState({
-            title:e.target.value
-        });
+    function uploadImageDB(fakepath){
+        let splits = fakepath.split('fakepath\\');
+        let first = splits[0];
+        let second = splits[1];
     }
-
-    onChangeImage(e){
-        this.setState( {
-            image: e.target.value
-        });
-    }
-
-    onChangeDescription(e){
-        this.setState( {
-            description: e.target.value
-        });
-    }
- 
-    onChangeUrl(e){
-        this.setState({
-            url: e.target.value
-        });
-    }
-
-    onSubmit(e){
-        e.preventDefault();
-      
-        const obj = {
-          title: this.state.title,
-          image: this.state.image,
-          description:  this.state.description,
-          url:  this.state.url
-        };
-
-      axios.post('http://localhost:3001/uploadposts/add', obj).then(res => console.log(res.data));
-      
-      this.setState ({
-        title:" ",
-        image:" ",
-        description:" ",
-        url:" "
-    })
-    }
-*/
 
     return (
         <div className="container">
@@ -114,11 +74,11 @@ export default function Dashboard_upload() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">Image</label>
-                        <div className="input-group mb-3">
-                            <input type="file"  className="form-control" placeholder="Browse Image" id="image" onChange={(e)=>{
-                                setImage(e.target.value);}}/>
+                       <div className="input-group mb-3">
+                            <input type="file"  className="form-control" placeholder="Browse Image" id="image" name="image" onChange={(e)=>{uploadImageDB(e.target.value)}}/>
                             
-                        </div>
+                        </div> 
+                        
                     </div>
                     <div className="form-group">
                         <label htmlFor="Description">Description</label>
@@ -133,7 +93,7 @@ export default function Dashboard_upload() {
                            
                         </div>
                     </div>
-                    <Link to="" onClick={sendData} className="btn btn-danger"><i className="fa fa-save" aria-hidden="true"></i><FaSave/>SAVE</Link>
+                    <Link to="/add" onClick={sendData} className="btn btn-danger"><i className="fa fa-save" aria-hidden="true"></i><FaSave/>SAVE</Link>
                 </form>
             </div>
         </div>

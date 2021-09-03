@@ -3,6 +3,8 @@ import { FaHome, FaSignInAlt } from 'react-icons/fa';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios'
 import logo from '../images/logo.png';
+import validator from 'validator'
+
 
 function Login (){
     const history =useHistory();
@@ -18,11 +20,28 @@ function Login (){
         const password = document.getElementById("password").value; 
 
         if((email == consultant_email) && (password == consultant_password)){
+        if (validator.isEmail(email)) {
             history.push("/view");
+
+          } else {
+            alert('Enter valid Email!')
+          }
         }else if((email == patient_email) && (password == patient_password)){
-            history.push("/ViewPatients");
+            if (validator.isEmail(email)) {
+                alert('Valid Email :)')
+                history.push("/ViewPatients");
+              } else {
+                alert('Enter valid Email!')
+              }
+           
         }else{
-            history.push("/ViewPatients");
+            if (validator.isEmail(email)) {
+                alert('Valid Email :)')
+                history.push("/ViewPatients");
+              } else {
+                alert('Enter valid Email!')
+              }
+            
         }
     
     }

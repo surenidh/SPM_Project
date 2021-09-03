@@ -1,3 +1,5 @@
+const multer = require("multer");
+
 /* const express = require('express');
 const uploadPostRoutes = express.Router();
 
@@ -118,7 +120,7 @@ router.route("/view").get((req,res) => {
 
 //update posts route
 router.route("/update/:id").put(async (req, res) => {
-    let postId = req.params.id;
+    let _id = req.params.id;
     const { title, image,description,url} = req.body;
 
     const updatePost = {
@@ -128,7 +130,7 @@ router.route("/update/:id").put(async (req, res) => {
         url
     }
 
-    const update = await Posts.findByIdAndUpdate(postId, updatePost).then(()=>{
+    const update = await Posts.findByIdAndUpdate(_id, updatePost).then(()=>{
         res.status(200).send({status:"Posts Updated"})
     }).catch((err) =>{
         res.status(500).send({status:"Error"})
@@ -138,10 +140,10 @@ router.route("/update/:id").put(async (req, res) => {
 })
 
 //delete route
-router.route("/delete/:id").delete(async(req, res) => {
-    let postId = req.params.id;
+router.route('/delete/:id').delete(async(req, res) => {
+    const postId = req.params.id;
 
-    await Posts.findByIdAndDelete(postId).then(()=>{
+    await Posts.findByIdAndDelete({_id:postId}).then(()=>{
         res.status(200).send({status:"Post Deleted"})
     }).catch((err)=>{
         res.status(500).send({status:"Error occured"})
@@ -150,13 +152,49 @@ router.route("/delete/:id").delete(async(req, res) => {
 })
 
 //select one post route
-router.route("/get/:id").get(async (req,res) =>{
-    let postId = req.params.id;
-    await Posts.findById(postId).then(() =>{
-        res.status(200).json({success:true})
-    }).catch((err) => {
-        res.status(500).send({status:"Error occured"})
-    })
-})
+router.route('/view/:id').get(async (req,res) =>{
+    try{
+const viewPost =   await Posts.findById(req.params.id);
+res.json(viewPost);
+alert("wow");
+    }catch(err) {
+        res.send('Error' +err);
+        
 
+    }
+}) 
+
+//select one post route
+router.route('/edit/:id').get(async (req,res) =>{
+    try{
+const viewPost =   await Posts.findById(req.params.id);
+res.json(viewPost);
+alert("wow");
+    }catch(err) {
+        res.send('Error' +err);
+        
+
+    }
+}) 
+
+//upload image
+const storage = multer.diskStorage({
+    destination:function(request, file ,callback){
+        callback(null, './public/uploads/images');
+    },
+
+    //add the extension
+    filename:function callback(request, file,callback){
+        callback(null,file.originalname);
+    },
+});
+
+/* //upload parameters
+const upload = multer({
+    storage:storage,
+    limits:{
+       fieldSize: 1024 * 1024 * 3,
+    },
+} */
+   
 module.exports = router;

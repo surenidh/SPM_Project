@@ -8,12 +8,14 @@ import SideNavigation from './components/SideNavigation.js';
 import DashboardUpload from './components/Dashboard_upload.js';
 import Dashboard_heading from './components/Dashboard_heading.js';
 import DashboardView from './components/Consultant_View_Post_dashboard';
-import View_Index from './components/view_post_home.js';
+import View_Index from './components/PostViewOneRecord.js';
 import ViewOneRecord from './components/ViewData.js';
 import QuestionViewConsultant from './components/Consultant_view_questions';
 import Edit_Post from './components/Posts_Edit.js';
 import QuestionViewConsultantByID from './components/QuestionViewConsultantByID.js';
 import ReplyForm from './components/ReplyForm.js';
+import viewByID from './components/ViewByIdPost.js'
+
 
 import { useState } from 'react';
 
@@ -24,9 +26,12 @@ function App() {
           <Route exact path="/"><Home/></Route>
           <Route path="/login"><Login/></Route>
           <Route path='/add' exact component = {DashboardUpload}/>
-          <Route path='/view' exact component = {DashboardView}/>
-          <Route path='/get/:id' exact component = {ViewOneRecord}/>
+          <Route path='/view' exact component = {viewByID}/>
+        {/*   <Route path='/view/:id' exact component = {ViewOneRecord}/> */}
           <Route path ='/viewQuestions' exact component = {QuestionViewConsultant}/>
+          <Route path ='/view/:id' exact component = {View_Index}/>
+          <Route path ='/viewByID' exact component = {viewByID}/>
+         {/* <Route path ='/EditUploadedPosts/id' exact component = {EditUploadedPosts}/> */}
           <Route path='/viewQuestionByID' exact component = {QuestionViewConsultantByID}/>
           <Route path='/reply' exact component = {ReplyForm}/>
 
@@ -35,9 +40,10 @@ function App() {
           <Route path="/register"><Register_Patient/></Route>
           <Route path='/sideNavigation'><SideNavigation/></Route>
           <Route path='/dashboard_heading'><Dashboard_heading/></Route>
-          <Route path='/view_index'><View_Index/></Route>
+          {/* <Route path='/view_index'><View_Index/></Route> */}
           <Route path='/ViewOneRecord/:id'><ViewOneRecord/></Route>
-          <Route path='/Edit_Post/:id'><Edit_Post/></Route>
+{/*           <Route path='/Edit_Post/:id'><Edit_Post/></Route>
+ */}          <Route path='/edit/:id'><Edit_Post/></Route>
 
      </Router>
    </div>
