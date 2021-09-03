@@ -3,6 +3,7 @@ import OIP from '../images/OIP.jpg';
 import logo from '../images/logo.png';
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
     export default class Reset_Password extends Component{ 
     constructor(props){
@@ -40,7 +41,7 @@ import axios from 'axios';
             password : this.state.password,
             confirmPassword : this.state.confirmPassword
         };
-        axios.post('https://icaf2021we36.herokuapp.com/conference/add',obj).then(res=>{alert("Successfull")}); // add the conference details to mongo db
+        axios.post('http://localhost:3001/password/insert',obj).then(res=>{alert("Password reset successfully")}); 
         
         
     }
@@ -76,14 +77,14 @@ paddingTop: 50 }}
     paddingTop: 50 }}
    >     
         <div style={{marginTop:10}}>
-          <h3 className = 'header2'> <center>FORGOT PASSWORD </center></h3>
+          <h3 className = 'header2'> <center>RESET PASSWORD </center></h3>
           <br></br>
              <form onSubmit={this.onsubmit}>
                  <div className="form-group">
                  <label> Enter Email Address</label>
                      <input type="text"
                             required
-                            placeholder="Enter Email Address"                            
+                            placeholder="Enter Email Address"
                             className="form-control"
                             value={this.state.patient_name}
                             onChange={this.onChangePatientName} />
@@ -113,6 +114,10 @@ paddingTop: 50 }}
                   <center>
                  <div className="form-group">
                      <input type="submit" value="SAVE" className="btn btn-danger"/>
+                 </div>
+<br></br>
+                 <div className="form-group">
+                 <Link to="/login"> <input type="submit" value="LOGIN" className="btn btn-primary"/></Link>
                  </div>
                  </center>
              </form>
