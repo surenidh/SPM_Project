@@ -83,7 +83,7 @@ paddingTop: 50 }}
                  <label> Enter Email Address</label>
                      <input type="text"
                             required
-                            placeholder="Enter Email Address"
+                            placeholder="Enter Email Address"                            
                             className="form-control"
                             value={this.state.patient_name}
                             onChange={this.onChangePatientName} />
