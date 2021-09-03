@@ -59,13 +59,8 @@ export default class AddPatientDetails extends Component{
             title : this.state.title,
             question : this.state.question
         };
-<<<<<<< Updated upstream
-        axios.post('https://icaf2021we36.herokuapp.com/conference/add',obj).then(res=>{alert("Successfull")}); // add the conference details to mongo db
-        
-        
-=======
         axios.post('http://localhost:3001/patient/add',obj).then(res=>{alert("Successfull")}); // add the patient details to mongo db      
->>>>>>> Stashed changes
+
     }
 // get the table structure for add conference details
 render(){
