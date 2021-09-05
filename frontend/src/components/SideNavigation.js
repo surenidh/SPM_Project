@@ -9,7 +9,7 @@ function SideNavigation() {
                     <li ><a className="current" href="/add" >POSTS</a></li>
                     <li className=""><a href="/view">VIEW UPLOADS</a></li>
                     <li className=""><a href="/viewQuestions">VIEW QUESTIONS</a></li>
-                    <li className=""><a href="#">VIEW APPOINTMENTS</a></li>
+                    <li className=""><a href="viewAppointmentsConsultant">VIEW APPOINTMENTS</a></li>
                     <li className=""><a href="#">SERVICES</a></li>
                     <li className=""><a href="#">LOGOUT</a></li>
                 </ul>

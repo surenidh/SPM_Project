@@ -33,6 +33,10 @@ text-decoration: none;
     margin-left:655px;
 }
 
+.container .content .sideNavigation .nav_sideNavigation .ul_SideNavigation .current{
+    color: red;
+}
+
 .container .content .sideNavigation .nav_sideNavigation .ul_SideNavigation li a:hover{
     color: red;
 }

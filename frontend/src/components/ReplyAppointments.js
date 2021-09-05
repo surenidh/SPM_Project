@@ -7,22 +7,23 @@ import axios from 'axios';
 import {Link, useParams,useHistory } from 'react-router-dom'
 import '../styles/consultantEdit.css';
 
-const ReplyForm = () => {
+const ReplyAppointments = () => {
 
     const history =useHistory();
     const {id} = useParams();
-    const [questions , setQuestions] = useState([
+    const [appointments , setAppointments] = useState([
         {
-            patient_name:"",
-            Email:"",
-            question:"",
+            name:"",
+            date:"",
+            email:"",
+            contactnumber:"",
         },
     ]);
     
-const {patient_name, Email, question} = questions;
+const { email} = appointments;
 
 const onInputChange = e =>{
-    setQuestions({...questions,[e.target.name]: e.target.value});
+    setAppointments({...appointments,[e.target.name]: e.target.value});
 };
 
 useEffect(()=>{
@@ -30,9 +31,9 @@ useEffect(()=>{
    
 },[]);
         const loadEmail = async() =>{
-            const result = await axios.get(`http://localhost:3001/patients/reply/${id}`);
+            const result = await axios.get(`http://localhost:3001/appointmentRouter/replyAppointments/${id}`);
           
-            setQuestions(result.data);
+            setAppointments(result.data);
         }
      
 
@@ -69,7 +70,7 @@ useEffect(()=>{
                     <h3>REPLY TO CUSTOMERS</h3>
                     <div className="form-group">
                         <label htmlFor="title">TO:</label>
-                        <input type="text" className="form-control" id="title" value={Email} onChange={e => onInputChange(e)} disabled/>
+                        <input type="text" className="form-control" id="title" value={email} onChange={e => onInputChange(e)} disabled/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="text">Subject</label>
@@ -91,4 +92,4 @@ useEffect(()=>{
         )
     }
 
-    export default ReplyForm;
+    export default ReplyAppointments;

@@ -8,9 +8,7 @@ import {Link, useHistory} from 'react-router-dom'
 import FileBase64 from 'react-file-base64'
 
 import '../styles/dashboard_consultant.css';
-/*import upload_posts from '../../../backend/models/upload_posts';
- import { post } from '../../../backend/router/uploadPost.route.js';
- */
+
 export default function Dashboard_upload() {
     const history =useHistory();
 
@@ -75,7 +73,8 @@ export default function Dashboard_upload() {
                     <div className="form-group">
                         <label htmlFor="image">Image</label>
                        <div className="input-group mb-3">
-                            <input type="file"  className="form-control" placeholder="Browse Image" id="image" name="image" onChange={(e)=>{uploadImageDB(e.target.value)}}/>
+                            <input type="file"  className="form-control" placeholder="Browse Image" id="image" name="image" onChange={(e)=>{
+                                setImage(e.target.value);}}/>
                             
                         </div> 
                         

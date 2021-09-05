@@ -1,9 +1,6 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from '../src/components/Home.js';
 import Login from '../src/components/login.js';
-import MakeAppointments from '../src/components/appointments.js';
-import Reset_Password from './components/ResetPassword.js';
-import Register_Patient from './components/RegisterPatient.js';
 import SideNavigation from './components/SideNavigation.js';
 import DashboardUpload from './components/Dashboard_upload.js';
 import Dashboard_heading from './components/Dashboard_heading.js';
@@ -15,7 +12,9 @@ import Edit_Post from './components/Posts_Edit.js';
 import QuestionViewConsultantByID from './components/QuestionViewConsultantByID.js';
 import ReplyForm from './components/ReplyForm.js';
 import viewByID from './components/ViewByIdPost.js'
-
+import viewAppointmentsConsultant from './components/Consultant_view_appointments.js';
+import viewAppointmentsConsultantID from './components/ConsultantViewAppointmnetsByID.js';
+import ReplyAppointments from './components/ReplyAppointments.js';
 
 import { useState } from 'react';
 
@@ -27,24 +26,21 @@ function App() {
           <Route path="/login"><Login/></Route>
           <Route path='/add' exact component = {DashboardUpload}/>
           <Route path='/view' exact component = {viewByID}/>
-        {/*   <Route path='/view/:id' exact component = {ViewOneRecord}/> */}
           <Route path ='/viewQuestions' exact component = {QuestionViewConsultant}/>
           <Route path ='/view/:id' exact component = {View_Index}/>
           <Route path ='/viewByID' exact component = {viewByID}/>
-         {/* <Route path ='/EditUploadedPosts/id' exact component = {EditUploadedPosts}/> */}
-          <Route path='/viewQuestionByID' exact component = {QuestionViewConsultantByID}/>
+          <Route path ='/edit/:id' exact component = {Edit_Post}/>
+          <Route path ='/update/:id' exact component = {Edit_Post}/>
+          <Route path='/viewQuestionsByID/:id' exact component = {QuestionViewConsultantByID}/>
           <Route path='/reply' exact component = {ReplyForm}/>
-
-          <Route path="/makeAppointments"><MakeAppointments/></Route>
-          <Route path="/reset"><Reset_Password/></Route>
-          <Route path="/register"><Register_Patient/></Route>
+          <Route path='/reply/:id' exact component = {ReplyForm}/>
+          <Route path='/replyAppointments' exact component = {ReplyAppointments}/>
+          <Route path='/replyAppointments/:id' exact component = {ReplyAppointments}/>
           <Route path='/sideNavigation'><SideNavigation/></Route>
           <Route path='/dashboard_heading'><Dashboard_heading/></Route>
-          {/* <Route path='/view_index'><View_Index/></Route> */}
           <Route path='/ViewOneRecord/:id'><ViewOneRecord/></Route>
-{/*           <Route path='/Edit_Post/:id'><Edit_Post/></Route>
- */}          <Route path='/edit/:id'><Edit_Post/></Route>
-
+          <Route path='/viewAppointmentsConsultant' exact component = {viewAppointmentsConsultant}/>
+          <Route path='/appointmentsByID/:id' exact component = {viewAppointmentsConsultantID}/>
      </Router>
    </div>
   );

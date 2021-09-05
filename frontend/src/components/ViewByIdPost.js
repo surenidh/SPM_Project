@@ -36,7 +36,6 @@ function deletePost(id){
 }
 
 function viewPost(id){
-    alert("Successfully view.." +  id);
      axios.get('http://localhost:3001/posts/view/' + id).then((res) =>{
         
             alert("Successfully view..");
@@ -59,12 +58,12 @@ function viewPost(id){
                             <li ><a  href="/add" >POSTS</a></li>
                             <li ><a className="current" href="/view">VIEW UPLOADS</a></li>
                             <li className=""><a href="/viewQuestions">VIEW QUESTIONS</a></li>
-                            <li className=""><a href="#">VIEW APPOINTMENTS</a></li>
-                            <li className=""><a href="#">SERVICES</a></li>
+                            <li className=""><a href="viewAppointmentsConsultant">VIEW APPOINTMENTS</a></li>
                             <li className=""><a href="#">LOGOUT</a></li>
                         </ul>
                     </nav>
-                </div>                </div>
+                </div>                
+                </div>
                 <div className ="list">
                 <table className="table table-striped">
                 <thead className="thead-dark">

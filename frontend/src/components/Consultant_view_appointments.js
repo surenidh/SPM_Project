@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Component } from 'react'
+import React from 'react'
 import { FaEdit , FaTrash , FaEye} from "react-icons/fa";
 import {Link} from 'react-router-dom';
 import Dashboard_heading from './Dashboard_heading.js';
@@ -9,29 +9,29 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 
-function Consultant_view_Questions(){
+function Consultant_view_appointments(){
 
-    const [questions , setQuestions] = useState([
+    const [consultantAppointments , setConsultantAppointments] = useState([
         {
-            patient_name:"",
-            Email:"",
-            question:"",
+            name:"",
+            date:"",
+            type:"",
+            contactnumber:"",
         },
     ]);
 
     useEffect(()=> {
-        fetch('http://localhost:3001/patients/viewQuestions').then((res) =>{
+        fetch('http://localhost:3001/appointmentRouter/viewAppointmentsConsultant').then((res) =>{
             if (res.ok){
-                return res.json();
-                //alert("success");
+               return res.json();
             }
-        }).then((jsonRes) => setQuestions(jsonRes))
-    }, [questions]);
+        }).then((jsonRes) => setConsultantAppointments(jsonRes))
+    }, [consultantAppointments]);
 
 
 
-function viewQuestions(id){
-    axios.get('http://localhost:3001/patients/viewQuestionsByID/' + id).then((res) =>{
+function viewAppointments(id){
+    axios.get('http://localhost:3001/appointmentRouter/appointmentsByID/' + id).then((res) =>{
 
     
     }) 
@@ -51,38 +51,39 @@ function viewQuestions(id){
                         <ul className="ul_SideNavigation">
                             <li ><a  href="/add" >POSTS</a></li>
                             <li ><a className="" href="/view">VIEW UPLOADS</a></li>
-                            <li ><a className="current" href="/viewQuestions">VIEW QUESTIONS</a></li>
-                            <li className=""><a href="viewAppointmentsConsultant">VIEW APPOINTMENTS</a></li>
+                            <li ><a  href="/viewQuestions">VIEW QUESTIONS</a></li>
+                            <li className=""><a className="current" href="/viewAppointmentsConsultant">VIEW APPOINTMENTS</a></li>
                             <li className=""><a href="#">LOGOUT</a></li>
                         </ul>
                     </nav>
-                </div>                </div>
+                </div>               
+                 </div>
                 <div className ="list">
                 <table className="table table-striped">
                 <thead className="thead-dark">
                                         <tr className="tablerow">
                                             <th scope="col">Patient Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Question</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Type</th>
                                             <th colSpan="2">Action</th>
                                         </tr></thead>
-                    {questions && questions.map(que => {
+                    {consultantAppointments && consultantAppointments.map(appointments => {
+                       
                         return(
-                            <div key={que._id}>
-                              
+                            <div key={appointments._id}>
+                           
                                   
                               <tbody className="tableBody">
                                 <tr scope="row">
                                     <td>
-                                    {que.patient_name}
+                                    {appointments.name}
                                     </td>
                                     <td>
-                                    {que.Email}
+                                    {appointments.date}
                                     </td>
-                                    <td>{que.question}</td>
+                                    <td>{appointments.type}</td>
                                     <td>
-                                    <Link to={`/viewQuestionsByID/${que._id}`} className="btn btn-danger" onClick={() =>  viewQuestions(que._id)} ><i className="fa fa-view red-color" aria-hidden="true"></i><FaEye/></Link>
-                                    
+                                    <Link to={`/appointmentsByID/${appointments._id}`} className="btn btn-danger" ><i className="fa fa-view red-color" aria-hidden="true"></i><FaEye/></Link>
                                     
                                     </td>
                                 </tr>                               
@@ -99,4 +100,4 @@ function viewQuestions(id){
     );
 }
 
-export default Consultant_view_Questions;
+export default Consultant_view_appointments;

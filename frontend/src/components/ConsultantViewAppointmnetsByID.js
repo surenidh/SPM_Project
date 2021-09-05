@@ -10,28 +10,29 @@ import img from '../images//reset.jpg';
 import SideNavigation from './SideNavigation';
 
 
-const QuestionViewConsultantByID = () => {
+const ConsultantViewAppointmnetsByID = () => {
 
-    const [questions , setQuestions] = useState([
+    const [appointments , setAppointments] = useState([
         {
-            title:"",
-            patient_name:"",
-            Email:"",
-            question:"",
+            name:"",
+            date:"",
+            type:"",
+            contactnumber:"",
+            email:"",
         },
     ]);
 
   const {id} = useParams();
  
   useEffect(()=>{
-    loadQuestion();
+    loadAppointments();
     
 },[]);
-   const loadQuestion = async () =>{
+   const loadAppointments = async () =>{
  
-       const res = await axios.get(`http://localhost:3001/patients/viewQuestions/${id}`);
+       const res = await axios.get(`http://localhost:3001/appointmentRouter/appointmentsByID/${id}`);
       
-      setQuestions(res.data);
+       setAppointments(res.data);
    };
 
      return (
@@ -47,7 +48,7 @@ const QuestionViewConsultantByID = () => {
                         <ul className="ul_SideNavigation">
                             <li ><a  href="/add" >POSTS</a></li>
                             <li ><a className="" href="/view">VIEW UPLOADS</a></li>
-                            <li ><a  href="/viewQuestions">VIEW QUESTIONS</a></li>
+                            <li ><a href="/viewQuestions">VIEW QUESTIONS</a></li>
                             <li className=""><a className="current" href="viewAppointmentsConsultant">VIEW APPOINTMENTS</a></li>
                             <li className=""><a href="#">LOGOUT</a></li>
                         </ul>
@@ -55,13 +56,14 @@ const QuestionViewConsultantByID = () => {
                 </div>                
                     </div>
                     <div className="containerViewByIDQuestion">
-                        <h4>{questions.title}</h4>  
-                        <p><b>Question:</b> {questions.question}</p> 
-                        <p><b>Name:</b> {questions.patient_name}</p>
-                        <p><b>Email: </b>{questions.Email}</p>
+                        <h4>{appointments.name}</h4>  
+                        <p><b>Date:</b> {appointments.date}</p> 
+                        <p><b>Type:</b> {appointments.type}</p>
+                        <p><b>Contact No:</b> {appointments.contactnumber}</p>
+                        <p><b>Email: </b>{appointments.email}</p>
                         
                         <div className="btnClass">
-                            <Link to={'/reply/'+ id} onClick="" className="btn btn-danger"><i className="fa fa-reply" aria-hidden="true"></i><FaReply/>REPLY</Link>
+                            <Link to={'/replyAppointments/'+ id} onClick="" className="btn btn-danger"><i className="fa fa-reply" aria-hidden="true"></i><FaReply/>REPLY</Link>
                             <Link to="/view" onClick="" className="btn btn-danger"><i className="fa fa-edit" aria-hidden="true"></i><FaBan/>CANCEL</Link>
                         </div>
                     </div>
@@ -70,4 +72,4 @@ const QuestionViewConsultantByID = () => {
         )
     }
 
-export default  QuestionViewConsultantByID;
+export default  ConsultantViewAppointmnetsByID;
