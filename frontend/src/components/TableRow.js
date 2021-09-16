@@ -44,7 +44,7 @@ class TableRow extends Component {
         <td>
           <button
                       className="btn btn-danger btn-sm"
-                      onClick={() => this.Delete(this.props.obj.id)}
+                      onClick={() => this.Delete(this.props.obj._id)}
                       style={{ color: "black" }}
                     >
                       <i className="fas fa-trash"></i> DELETE
