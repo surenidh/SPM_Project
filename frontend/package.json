@@ -20,8 +20,12 @@
     "react-player": "^2.9.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+<<<<<<< HEAD
     "react-scripts": "4.0.3",
     "validator": "^13.6.0",
+=======
+    "react-scripts": "^4.0.3",
+>>>>>>> origin/sanduni
     "web-vitals": "^1.1.2"
   },
   "scripts": {

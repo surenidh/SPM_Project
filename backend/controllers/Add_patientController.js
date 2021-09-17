@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const { Patient } = require("../models/Add_patientModel.js");
+=======
+const { Patient } = require("../models/Add_patientModel");
+>>>>>>> origin/sanduni
 =======
 const { Patient } = require("../models/Add_patientModel");
 >>>>>>> origin/sanduni
@@ -66,7 +70,11 @@ module.exports = {
   updateDetails,
   deleteDetails,
 <<<<<<< HEAD
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> origin/sanduni
 =======
 };
 >>>>>>> origin/sanduni

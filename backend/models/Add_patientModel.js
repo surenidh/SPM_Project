@@ -17,6 +17,7 @@ const PatienteSchema =  mongoose.Schema({
     question : {
         type:String
     }
+<<<<<<< HEAD
 },{timesamps:true},
 {
     collection:'patients'
@@ -27,3 +28,10 @@ module.exports = mongoose.model('Patient', PatienteSchema);
 
 
 
+=======
+},{timesamps:true})
+
+const Patient = mongoose.model('Patient', PatienteSchema);
+
+module.exports = {Patient}
+>>>>>>> origin/sanduni

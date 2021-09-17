@@ -1,10 +1,18 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 import { FaQuoteLeft } from 'react-icons/fa';
 //import { Height } from '@material-ui/icons';
 import '../styles/AddPatient.css';
 import {Link} from "react-router-dom";
 import logo from '../images/logo.png';
+=======
+import '../styles/AddPatient.css';
+import {Link} from "react-router-dom";
+import logo from '../images/logo.png';
+import SideNavigation from './PatientSideNavBar';
+import 'bootstrap/dist/css/bootstrap.css';
+>>>>>>> origin/sanduni
 
 export default class AddPatientDetails extends Component{ 
 
@@ -13,8 +21,13 @@ export default class AddPatientDetails extends Component{
         this.onChangePatientName=this.onChangePatientName.bind(this);
         this.onChangeContactNo=this.onChangeContactNo.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
+<<<<<<< HEAD
         this.onChangeTitle = this.onChangeEmail.bind(this);
         this.onChangeQuestion = this.onChangeEmail.bind(this);
+=======
+        this.onChangeTitle = this.onChangeTitle.bind(this);
+        this.onChangeQuestion = this.onChangeQuestion.bind(this);
+>>>>>>> origin/sanduni
         this.onsubmit=this.onsubmit.bind(this);
 
         this.state={
@@ -36,7 +49,11 @@ export default class AddPatientDetails extends Component{
         });
     }
     onChangeEmail(e){
+<<<<<<< HEAD
         this.setState({
+=======
+        this.setState({ 
+>>>>>>> origin/sanduni
             Email:e.target.value
         });
     }
@@ -59,7 +76,11 @@ export default class AddPatientDetails extends Component{
             title : this.state.title,
             question : this.state.question
         };
+<<<<<<< HEAD
         axios.post('https://icaf2021we36.herokuapp.com/conference/add',obj).then(res=>{alert("Successfull")}); // add the conference details to mongo db
+=======
+        axios.post('http://localhost:3001/patient/add',obj).then(res=>{alert("Successfull")}); // add the patient details to mongo db
+>>>>>>> origin/sanduni
         
         
     }
@@ -77,7 +98,11 @@ render(){
      backgroundColor: "#c2c2d6",
      marginTop:-73,
     paddingTop: 50 }}
+<<<<<<< HEAD
    >     
+=======
+   >      
+>>>>>>> origin/sanduni
 
                 <div class="logo">
                         <img src={logo} alt="logo"/>
@@ -85,6 +110,11 @@ render(){
                 <br></br><br></br><br></br><br></br><br></br>
         <div className="dashboard">
 <h2 className = 'header2'> <screenLeft>PATIENT DASHBOARD</screenLeft></h2>
+<<<<<<< HEAD
+=======
+<SideNavigation/>
+
+>>>>>>> origin/sanduni
 </div>
         <div
      class='form-group w-25'
@@ -92,13 +122,23 @@ render(){
      style={{ width: '40rem', height:'36rem',
      backgroundColor: "#c2c2d6",
      marginLeft:600,
+<<<<<<< HEAD
      marginTop:50,
+=======
+     marginTop:-500,
+>>>>>>> origin/sanduni
     paddingTop: 50 }}
    >     
 
         <div style={{marginTop:10}}>
           <h3 className = 'header2'> <center>ADD QUESTIONS </center></h3>
           <br></br>
+<<<<<<< HEAD
+=======
+          <div className="form-group">
+                 <Link to="/uploads"> <input type="submit" value="Upload Report" className="btn btn-primary"/></Link>
+                 </div>
+>>>>>>> origin/sanduni
              <form onSubmit={this.onsubmit}>
                  <div className="form-group">
                  <label> </label>
@@ -112,7 +152,11 @@ render(){
 
                  <div className="form-group">
                      <label>  </label>
+<<<<<<< HEAD
                      <input type="text" 
+=======
+                     <input type="number" 
+>>>>>>> origin/sanduni
                             required
                             placeholder="Enter Contact No"
                             className="form-control"
@@ -151,6 +195,7 @@ render(){
                  </div>
                  <br></br>
                  <div className="form-group">
+<<<<<<< HEAD
                      <input type="submit" value="Upload Report" className="btn btn-primary"/>
                  </div>
                   <br></br>
@@ -158,6 +203,12 @@ render(){
                      <input type="submit" value="SAVE" className="btn btn-danger"/>
                  </div>
                 
+=======
+                     <input type="submit" value="SAVE" className="btn btn-danger"/>
+                 </div>
+                 <br></br>
+
+>>>>>>> origin/sanduni
              </form>
          </div>
          </div>

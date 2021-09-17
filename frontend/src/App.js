@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from '../src/components/Home.js';
 import Login from '../src/components/login.js';
+<<<<<<< HEAD
 import SideNavigation from './components/SideNavigation.js';
 import DashboardUpload from './components/Dashboard_upload.js';
 import Dashboard_heading from './components/Dashboard_heading.js';
@@ -29,6 +30,19 @@ import GetPatientDetails from './components/view_patients';
 import Reset_Password from './components/ResetPassword';
 import EditPatientDetails from './components/Patient_Edit_Question';
 
+=======
+import MakeAppointments from '../src/components/appointments.js';
+import Register_Patient from './components/Register_Patient.js';
+<<<<<<< Updated upstream
+import SideNavigation from './components/SideNavigation.js';
+=======
+//sanduni
+import AddPatientDetails from './components/Patient_Add_Questions';
+import GetPatientDetails from './components/view_patients';
+import Reset_Password from './components/Reset_Password';
+import EditPatientDetails from './components/Patient_Edit_Question';
+>>>>>>> Stashed changes
+>>>>>>> origin/sanduni
 
 function App() {
   return (
@@ -59,18 +73,31 @@ function App() {
 {/* 
           <Route path="/makeAppointments"><MakeAppointments/></Route>
           <Route path="/register"><Register_Patient/></Route>
+<<<<<<< HEAD
             <Route path="/register"><Register_Patient/></Route>
  */}
           <Route path='/sideNavigation'><SideNavigation/></Route>
 
         
+=======
+<<<<<<< Updated upstream
+          <Route path='/sideNavigation'><SideNavigation/></Route>
+=======
+          <Route path="/register"><Register_Patient/></Route>
+>>>>>>> origin/sanduni
 
           {/* //Sanduni */}
           <Route path="/AddQuestion"><AddPatientDetails/></Route>
           <Route path="/ViewPatients"><GetPatientDetails/></Route>
           <Route path="/reset"><Reset_Password/></Route>
+<<<<<<< HEAD
           <Route exact path='/edit/:id' exact component = {EditPatientDetails}/>
 
+=======
+          <Route exact path='/edit/:id' component = {EditPatientDetails}/>
+>>>>>>> Stashed changes
+       </Switch>
+>>>>>>> origin/sanduni
      </Router>
    </div>
   );
