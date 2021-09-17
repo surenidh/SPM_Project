@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { FaEdit , FaBan} from "react-icons/fa";
+import { FaEdit , FaBan, FaFilePdf} from "react-icons/fa";
 import {Link, useParams} from 'react-router-dom';
 import Dashboard_heading from './Dashboard_heading.js';
 import { useEffect, useState } from 'react';
@@ -8,7 +8,7 @@ import '../styles/consultantEdit.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import img from '../images//reset.jpg';
 import SideNavigation from './SideNavigation';
-
+import jsPDF from 'jspdf';
 
 const PostViewOneRecord = () => {
 
@@ -52,6 +52,22 @@ const PostViewOneRecord = () => {
        imageUrl = newPath;
        alert(imageUrl);
    }
+
+  const pdfGenerator = () =>{
+    var doc = new jsPDF('p','pt');
+   
+    doc.setFontSize(26);
+    doc.setTextColor(165,42,42);
+    doc.text(190,120,`${posts.title}`);
+   
+    doc.setFontSize(20);
+    doc.setTextColor(47,79,79);
+    doc.text(190,190,`${posts.description}`);
+
+   doc.save('generate.pdf');
+    
+}
+
         return (
             <div className="container">
             <Dashboard_heading/>
@@ -69,7 +85,7 @@ const PostViewOneRecord = () => {
                 <p>{imageUrl}</p>
                 <p>{posts.description}</p>
                 <div className="btnClass">
-                <Link to="/edit/:id" onClick="" className="btn btn-danger"><i className="fa fa-edit" aria-hidden="true"></i><FaEdit/>EDIT</Link>
+                <Link to="/ConsultantPdf" onClick={pdfGenerator} className="btn btn-danger"><i className="fa fa-edit" aria-hidden="true"></i><FaFilePdf/>GENERATE PDF</Link>
                 <Link to="/view" onClick="" className="btn btn-danger"><i className="fa fa-edit" aria-hidden="true"></i><FaBan/>CANCEL</Link>
                 </div>
             </div>

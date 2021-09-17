@@ -59,12 +59,15 @@ function viewPost(id){
                             <li ><a className="current" href="/view">VIEW UPLOADS</a></li>
                             <li className=""><a href="/viewQuestions">VIEW QUESTIONS</a></li>
                             <li className=""><a href="viewAppointmentsConsultant">VIEW APPOINTMENTS</a></li>
-                            <li className=""><a href="#">LOGOUT</a></li>
+                            <li className=""><a href="/LOgoutConsultant">LOGOUT</a></li>
                         </ul>
                     </nav>
                 </div>                
                 </div>
                 <div className ="list">
+                    <input type="text" onChange={(e)=>{
+                        setPosts(e.target.value);
+                    }}/>
                 <table className="table table-striped">
                 <thead className="thead-dark">
                                         <tr className="tablerow">
@@ -89,7 +92,7 @@ function viewPost(id){
                                     <td>{post.description}</td>
                                     <td>
                                     <Link to={`/view/${post._id}`} className="btn btn-danger" onClick={() =>  viewPost(post._id)}><i className="fa fa-view red-color" aria-hidden="true"></i><FaEye/></Link>
-                                    <Link to={`/edit/${post._id}`} className="btn btn-danger"><i className="fa fa-edit"  aria-hidden="true" ></i><FaEdit/></Link>
+                                    <Link to={`/editPost/${post._id}`} className="btn btn-danger"><i className="fa fa-edit"  aria-hidden="true" ></i><FaEdit/></Link>
                                     <Link to="/view" className="btn btn-danger" onClick={() => deletePost(post._id)}><i className="fa fa-trash" aria-hidden="true"></i><FaTrash/></Link>  
                                     </td>
                                 </tr>                               

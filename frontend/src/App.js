@@ -15,8 +15,20 @@ import viewByID from './components/ViewByIdPost.js'
 import viewAppointmentsConsultant from './components/Consultant_view_appointments.js';
 import viewAppointmentsConsultantID from './components/ConsultantViewAppointmnetsByID.js';
 import ReplyAppointments from './components/ReplyAppointments.js';
+import LOgoutConsultant from './components/LogoutConsultant.js';
+import ConsultantPdf from './components/ConsultantPdf.js';
 
 import { useState } from 'react';
+
+//import MakeAppointments from '../components/appointments.js';
+//import Register_Patient from './components/Register_Patient.js';
+
+//sanduni
+import AddPatientDetails from './components/Patient_Add_Questions';
+import GetPatientDetails from './components/view_patients';
+import Reset_Password from './components/ResetPassword';
+import EditPatientDetails from './components/Patient_Edit_Question';
+
 
 function App() {
   return (
@@ -24,13 +36,14 @@ function App() {
      <Router>
           <Route exact path="/"><Home/></Route>
           <Route path="/login"><Login/></Route>
+
           <Route path='/add' exact component = {DashboardUpload}/>
           <Route path='/view' exact component = {viewByID}/>
           <Route path ='/viewQuestions' exact component = {QuestionViewConsultant}/>
           <Route path ='/view/:id' exact component = {View_Index}/>
           <Route path ='/viewByID' exact component = {viewByID}/>
-          <Route path ='/edit/:id' exact component = {Edit_Post}/>
-          <Route path ='/update/:id' exact component = {Edit_Post}/>
+          <Route path ='/editPost/:id' exact component = {Edit_Post}/>
+          <Route path ='/updatepost/:id' exact component = {Edit_Post}/>
           <Route path='/viewQuestionsByID/:id' exact component = {QuestionViewConsultantByID}/>
           <Route path='/reply' exact component = {ReplyForm}/>
           <Route path='/reply/:id' exact component = {ReplyForm}/>
@@ -41,6 +54,23 @@ function App() {
           <Route path='/ViewOneRecord/:id'><ViewOneRecord/></Route>
           <Route path='/viewAppointmentsConsultant' exact component = {viewAppointmentsConsultant}/>
           <Route path='/appointmentsByID/:id' exact component = {viewAppointmentsConsultantID}/>
+          <Route path='/LOgoutConsultant' exact component = {LOgoutConsultant}/>
+          <Route path='/ConsultantPdf' exact component = {ConsultantPdf}/>
+{/* 
+          <Route path="/makeAppointments"><MakeAppointments/></Route>
+          <Route path="/register"><Register_Patient/></Route>
+            <Route path="/register"><Register_Patient/></Route>
+ */}
+          <Route path='/sideNavigation'><SideNavigation/></Route>
+
+        
+
+          {/* //Sanduni */}
+          <Route path="/AddQuestion"><AddPatientDetails/></Route>
+          <Route path="/ViewPatients"><GetPatientDetails/></Route>
+          <Route path="/reset"><Reset_Password/></Route>
+          <Route exact path='/edit/:id' exact component = {EditPatientDetails}/>
+
      </Router>
    </div>
   );

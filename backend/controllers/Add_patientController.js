@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { Patient } = require("../models/Add_patientModel.js");
+=======
+const { Patient } = require("../models/Add_patientModel");
+>>>>>>> origin/sanduni
 
 const AddDetails = async (req, res, next) => {
   let patient = new Conference(req.body);
@@ -61,4 +65,8 @@ module.exports = {
   editDetails,
   updateDetails,
   deleteDetails,
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> origin/sanduni

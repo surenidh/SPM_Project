@@ -23,3 +23,7 @@ const PatienteSchema =  mongoose.Schema({
 });
 
 module.exports = mongoose.model('Patient', PatienteSchema);
+
+
+
+
