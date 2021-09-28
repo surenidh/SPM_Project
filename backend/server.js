@@ -6,6 +6,12 @@ const config = require('./DB.js');
 
 const app = express();
 
+app.use('/api/register', require('./router/registration-router'));
+
+mongoose.connect('mongodb+srv://sureni:sureni321@cluster0.aianx.mongodb.net/counselling?retryWrites=true&w=majority',{
+useNewUrlParser: true,
+} ,() => console.log("database connected"));
+
 mongoose.Promise = global.Promise;
 
 //connect to database
@@ -30,5 +36,6 @@ app.use("/patients",patientRouter);
 //router for Appointment patient
 const appointmnetRouter = require("./router/AppointmnetsConsultant.route.js");
 app.use("/appointmentRouter",appointmnetRouter);
+
 
 app.listen(3001 , () => console.log("Server is started"));;
