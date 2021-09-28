@@ -4,15 +4,16 @@ import Home from '../src/components/Home.js';
 import Login from '../src/components/login.js';
 import MakeAppointments from '../src/components/appointments.js';
 import Register_Patient from './components/Register_Patient.js';
-<<<<<<< Updated upstream
 import SideNavigation from './components/SideNavigation.js';
-=======
+
 //sanduni
 import AddPatientDetails from './components/Patient_Add_Questions';
-import GetPatientDetails from './components/view_patients';
+import GetPatientDetails from './components/ViewPatientDetails';  
 import Reset_Password from './components/Reset_Password';
 import EditPatientDetails from './components/Patient_Edit_Question';
->>>>>>> Stashed changes
+import FileUpload from "./components/patient-fileUpload";
+//import PModal from "./components/Add";
+import firebase from './firebase';
 
 function App() {
   return (
@@ -23,17 +24,15 @@ function App() {
           <Route path="/login"><Login/></Route>
           <Route path="/makeAppointments"><MakeAppointments/></Route>
           <Route path="/register"><Register_Patient/></Route>
-<<<<<<< Updated upstream
           <Route path='/sideNavigation'><SideNavigation/></Route>
-=======
-          <Route path="/register"><Register_Patient/></Route>
 
           {/* //Sanduni */}
           <Route path="/AddQuestion"><AddPatientDetails/></Route>
           <Route path="/ViewPatients"><GetPatientDetails/></Route>
           <Route path="/reset"><Reset_Password/></Route>
           <Route exact path='/edit/:id' component = {EditPatientDetails}/>
->>>>>>> Stashed changes
+          <Route exact path='/uploads' component = {FileUpload}/>
+          {/* <Route exact path='/add' component = {PModal}/> */}
        </Switch>
      </Router>
    </div>

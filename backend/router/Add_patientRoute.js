@@ -7,4 +7,5 @@ router.get('/', patientController.getDetails);
 router.get('/edit/:id', patientController.editDetails);
 router.post('/update/:id', patientController.updateDetails);
 router.post('/delete/:id', patientController.deleteDetails);
-module.exports = router;
+router.get('/getPdf', patientController.getTemplates);
+module.exports = router;    

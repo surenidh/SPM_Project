@@ -1,11 +1,11 @@
 const { Patient } = require("../models/Add_patientModel");
-
+const { Template} = require("../models/patient-fileUpload-model");
 const AddDetails = async (req, res, next) => {
-  let patient = new Conference(req.body);
+  let patient = new Patient(req.body);
   await patient
     .save()
     .then((patient) => {
-      res.status(200).json({ conference: "Patient Details added succesfully" });
+      res.status(200).json({ patient: "Patient Details added succesfully" });
     })
     .catch((err) => {
       res.status(400).send("unable to save database");
@@ -15,7 +15,7 @@ const getDetails = async (req, res) => {
   await Patient.find(function (err, patient) {
     if (err) console.log(err);
     else {
-      res.json(patient);
+      res.json(patient);  
     }
   });
 };
@@ -55,10 +55,21 @@ const deleteDetails = async (req, res) => {
     }
   );
 };
+
+const getTemplates = async(req, res)=>{
+  await Template.find(function (err, template) {
+    if (err) console.log(err);
+    else {
+      res.json(template);  
+    }
+  });
+}
 module.exports = {
   AddDetails,
   getDetails,
   editDetails,
   updateDetails,
   deleteDetails,
+  getTemplates,
 };
+

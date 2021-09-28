@@ -39,6 +39,7 @@ export default class GetPatientDetails extends Component {
                   title: item.title,
                   question: item.question,
                   url: i.url,
+                  _id:item._id,
                 };
                 patient.push(object);
               } else if(count === pdfDetails.length) {
@@ -47,7 +48,7 @@ export default class GetPatientDetails extends Component {
             });
           });
           this.setState({ patient: patient });
-          console.log(pdfDetails);
+          console.log(patient);
         });
       })
       .catch(function (error) {

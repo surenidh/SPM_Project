@@ -10,7 +10,7 @@ const PatienteSchema =  mongoose.Schema({
     },
     Email : {
         type:String
-    },
+    },   
     title : {
         type:String
     },

@@ -174,7 +174,7 @@ render(){
                  </div>
                  <br></br>
                  <div className="form-group">
-                     <input type="submit" value="Upload Report" className="btn btn-primary"/>
+                 <Link to="/uploads"> <input type="submit" value="Upload Report" className="btn btn-primary"/></Link>
                  </div>
                   <br></br>
                  <div className="form-group">
