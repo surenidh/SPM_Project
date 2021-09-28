@@ -1,0 +1,15 @@
+.heading_dashboard .header_top{
+    width:100%;
+    height: 100px;
+    background-color: lightgray;
+}
+
+.heading_dashboard .header_top .header_logo{
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+}
+.heading_dashboard .header_top .header_logo img{
+    width: 100px;
+    height: 100px;
+}

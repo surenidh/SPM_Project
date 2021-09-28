@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const uploadPostTemplate = new mongoose.Schema({
+const UploadPosts = new mongoose.Schema({
     title:{
         type: String,
         required: true
     },
     image:{
-        type: Image,
+        type: String,
     },
     description:{
         type: String,
@@ -15,6 +15,8 @@ const uploadPostTemplate = new mongoose.Schema({
     url:{
         type: String,
     }
-})
+},{
+    collection:'uploadposts'
+});
 
-module.exports = mongoose.model('conselling', uploadPostTemplate);
+module.exports = mongoose.model('UploadPosts',UploadPosts);
